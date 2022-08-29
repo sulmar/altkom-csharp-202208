@@ -1,4 +1,4 @@
-﻿using System.Globalization;
+﻿using ProcessFile.Services;
 
 namespace ProcessFile
 {
@@ -9,43 +9,42 @@ namespace ProcessFile
             Console.WriteLine("Hello, Process File!");
 
             const string filename = "Items.csv";
-            const char separator = ',';
+            
+            decimal ratio = 0.1m;
 
-            CultureInfo culture = new CultureInfo("en");
+            IItemService itemService = new CsvItemService(filename, ',');
+            // IItemService itemService = new DbItemService("server=local;database=items;...");
+            // IItemService itemService = new XmlItemService();
 
-            // Tablica
-            // string content = File.ReadAllText(filename);
+            Item[] items = itemService.Get();           
 
-            // Załadowanie listy produktów
-            string[] lines = File.ReadAllLines(filename);
+            Display(items);
 
-            Item[] items = new Item[lines.Length - 1];
+            IncrementPrices(items, ratio);            
 
-            int i = 0;
+            Display(items);
 
-            // Iteracja po elementach tablicy
-            foreach (string line in lines.Skip(1))
+        }
+
+       
+        
+
+
+        static void IncrementPrices(Item[] items, decimal ratio)
+        {
+            foreach (Item item in items)
             {
-                // Rozdzielenie tekstu na tablicę
-                string[] columns = line.Split(separator);
-
-                Item item = new Item();
-                item.barCode = columns[0];
-                item.name = columns[1];
-                item.color = columns[2];
-                item.price = decimal.Parse(columns[3], culture);
-
-                items[i++] = item;                
+                // item.price = item.price + item.price * 0.1m;
+                item.price += item.price * ratio;
             }
+        }
 
-            // Wyświetlenie listy produktów
-            for(i = 0; i < items.Length; i++)
+        static void Display(Item[] items)
+        {
+            foreach (Item item in items)
             {
-                Item item = items[i];
-
-                Console.WriteLine($"{item.barCode} {item.name} {item.color} {item.price}");
+                Console.WriteLine(item);
             }
-
         }
     }
 }
