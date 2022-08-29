@@ -45,21 +45,6 @@ namespace Classes
         Soft = 1,
     }
 
-    internal class Mebel
-    {
-        public int dlugosc;
-        public int szerokosc;
-        public int wysokosc;
-        public int waga;
-        public string material;
-        public string kolor;
-
-        public void Zaprezentuj()
-        {
-            // TODO: 
-        }
-    }
-
     internal class Telefon
     {
         public string marka;
