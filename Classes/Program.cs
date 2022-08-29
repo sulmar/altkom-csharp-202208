@@ -6,6 +6,11 @@
         {
             Console.WriteLine("Hello, World!");
 
+            Book book = new Book();
+            book.coverType = CoverType.Hard;
+           
+            
+
             //string firstName1 = "Marcin";
             //string lastName1 = "Sulecki";
             //byte age1 = 18;

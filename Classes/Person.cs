@@ -12,11 +12,19 @@ namespace Classes
         public string firstName;
         public string lastName;
         public int age;
+        public Gender gender;
 
         // Metoda
         public void Greet()
         {
             Console.WriteLine($"{this.firstName} {this.lastName} {this.age}");
         }
+    }
+
+    public enum Gender
+    {
+        Male,
+        Female
+        
     }
 }
