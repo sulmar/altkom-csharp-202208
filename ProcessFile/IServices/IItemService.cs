@@ -1,4 +1,6 @@
-﻿namespace ProcessFile.IServices
+﻿using ProcessFile.Models;
+
+namespace ProcessFile.IServices
 {
     interface IItemService
     {
