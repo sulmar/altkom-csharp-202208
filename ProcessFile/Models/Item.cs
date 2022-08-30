@@ -6,12 +6,25 @@ using System.Threading.Tasks;
 
 namespace ProcessFile.Models
 {
+    public class Service
+    {
+        public string Name { get; set; }
+        public decimal Price { get; set; }
+        public TimeSpan Duration { get; set; } 
+    }
+
+    public class Product
+    {
+        public string BarCode { get; set; }
+        public string Name { get; set; }
+        public string Color { get; set; }
+        public decimal Price { get; set; }
+    }
+
     public class Item
     {
-        public int Id { get; set; }
         public string BarCode { get; private set; } 
-        public string Title { get; set; }
-                
+                        
         private string name;
 
         public string Name
