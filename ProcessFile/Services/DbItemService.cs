@@ -21,9 +21,17 @@ namespace ProcessFile.Services
 
         public List<Item> Get()
         {
-            string sql = "select * from dbo.Items";
+            // http://localhost/items?color=red;
+
+            string color = "red";
+
+            // SQL Injection!
+            // string sql = "select * from dbo.Items WHERE Color = '" + color + "'";
+
+            string sql = "select * from dbo.Items WHERE Color = @color";
 
             SqlCommand command = new SqlCommand(sql, sqlConnection);
+            command.Parameters.AddWithValue("color", color);
 
             sqlConnection.Open();
 
