@@ -24,7 +24,7 @@
         public Batery Batery { get; set; }
     }
 
-    public class Phone
+    public abstract class Phone
     {
         public string marka;
         public string model;

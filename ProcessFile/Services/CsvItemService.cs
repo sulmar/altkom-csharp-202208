@@ -63,7 +63,7 @@ namespace ProcessFile.Services
             {
                 string barCode = columns[1];
                 string color = columns[3];
-
+                
                 item = new Product(barCode, color, name, price);
             }
             else

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Classes
 {
 
-    public class Publication
+    public abstract class Publication
     {     
         public DateOnly releaseDate;
         public string Title { get; set; }

@@ -6,10 +6,19 @@
         {
             Console.WriteLine("Hello, World!");
 
-            Book book = new Book();
-            book.CoverType = CoverType.Hard;
-           
-            
+            Book book1 = new Book();
+            book1.authorName = "John Smith";
+            book1.ISBN = "4454435345";
+            book1.CoverType = CoverType.Hard;
+
+            // Tworzenie obiektu za pomocą inicjalizatorów
+            Book book3 = new Book
+            {
+                authorName = "John Smith",
+                ISBN = "4454435345",
+                CoverType = CoverType.Hard,
+                Publisher = "WNT",
+            };
 
             //string firstName1 = "Marcin";
             //string lastName1 = "Sulecki";

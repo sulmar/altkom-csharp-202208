@@ -10,8 +10,8 @@
 
     }
 
-
-    public class Clock
+   
+    public abstract class Clock
     {
         public string name;
         public string color;

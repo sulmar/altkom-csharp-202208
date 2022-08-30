@@ -41,7 +41,7 @@
         public Rozmiar Rozmiar { get; set; }
     }
 
-    public class Mebel
+    public abstract class Mebel
     {
         public Rozmiar Rozmiar { get; set; }
 

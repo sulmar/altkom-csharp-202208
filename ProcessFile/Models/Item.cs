@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ProcessFile.Models
 {
 
-    public class Item
+    public abstract class Item
     {        
                         
         private string name;
