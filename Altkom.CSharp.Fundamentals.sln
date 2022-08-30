@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProcessFile", "ProcessFile\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Altkom.Models", "Altkom.Models\Altkom.Models.csproj", "{E3B2AB37-A5FC-45E4-8701-A66EEB384E34}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Arrays", "Arrays\Arrays.csproj", "{924A253F-AF4B-40D7-8147-2A425E0F0068}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{E3B2AB37-A5FC-45E4-8701-A66EEB384E34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3B2AB37-A5FC-45E4-8701-A66EEB384E34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3B2AB37-A5FC-45E4-8701-A66EEB384E34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{924A253F-AF4B-40D7-8147-2A425E0F0068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{924A253F-AF4B-40D7-8147-2A425E0F0068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{924A253F-AF4B-40D7-8147-2A425E0F0068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{924A253F-AF4B-40D7-8147-2A425E0F0068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

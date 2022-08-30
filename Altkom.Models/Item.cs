@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace Altkom.Models
 {
 
-    public abstract class Item
+    public class Item
     {        
                         
         private string name;
