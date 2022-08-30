@@ -8,6 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Altkom.Models\Altkom.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Items.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

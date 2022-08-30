@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Xml.Linq;
 
-namespace ProcessFile.Models
+namespace Altkom.Models
 {
     public class Service : Item
     {        

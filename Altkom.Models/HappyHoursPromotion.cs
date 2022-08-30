@@ -1,4 +1,4 @@
-﻿namespace ProcessFile.Models
+﻿namespace Altkom.Models
 {
     public class HappyHoursPromotion
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ProcessFile.IServices;
-using ProcessFile.Models;
+using Altkom.Models;
 
 namespace ProcessFile.Services
 {
