@@ -4,48 +4,12 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ProcessFile.IServices;
 
 namespace ProcessFile.Services
 {
-    interface IItemService
-    {
-        Item[] Get();
-    }
 
-
-    internal class XmlItemService : IItemService
-    {
-        public Item[] Get()
-        {
-            return GetItems();
-        }
-
-        public Item[] GetItems()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
-    internal class DbItemService : IItemService
-    {
-        // snippet: ctor + 2 x Tab
-
-        string connectionString;
-
-        public DbItemService(string connectionString)
-        {
-            this.connectionString = connectionString;
-        }
-
-        public Item[] Get()
-        {
-            throw new NotImplementedException();
-
-            // TODO: SQL select * from dbo.Items
-        }
-    }
-
-    internal class CsvItemService : IItemService
+    internal class CsvItemService : IItemService    // CsvItemService implementuje IItemService
     {
         string filename;
         char separator;
@@ -55,6 +19,8 @@ namespace ProcessFile.Services
             this.filename = filename;
             this.separator = separator;
         }
+
+        
 
         public Item[] Get()
         {           

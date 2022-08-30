@@ -1,4 +1,5 @@
-﻿using ProcessFile.Services;
+﻿using ProcessFile.IServices;
+using ProcessFile.Services;
 
 namespace ProcessFile
 {
@@ -15,6 +16,8 @@ namespace ProcessFile
             IItemService itemService = new CsvItemService(filename, ',');
             // IItemService itemService = new DbItemService("server=local;database=items;...");
             // IItemService itemService = new XmlItemService();
+
+            itemService.Get();
 
             Item[] items = itemService.Get();           
 
