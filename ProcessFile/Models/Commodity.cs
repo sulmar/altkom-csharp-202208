@@ -2,8 +2,15 @@
 {
     public class Commodity : Item
     {
-        public Commodity(string name, decimal price) : base(name, price)
+        public float Capacity { get; set; }
+        public Commodity(string name, decimal price, float capacity) : base(name, price)
         {
+            Capacity = capacity;
+        }
+
+        public override string GetDescription()
+        {
+            return $"{base.GetDescription()} {Capacity}";
         }
     }
 }

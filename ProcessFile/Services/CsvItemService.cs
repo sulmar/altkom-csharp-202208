@@ -76,7 +76,7 @@ namespace ProcessFile.Services
             else
             if (itemType == "T")
             {
-                item = new Commodity(name, price);
+                item = new Commodity(name, price, 100);
             }
 
             return item;

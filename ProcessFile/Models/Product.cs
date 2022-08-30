@@ -14,6 +14,19 @@ namespace ProcessFile.Models
             Color = color;
         }
 
+
+        // product1.BarCode = "12345";
+
+        //public void SetBarCode(string value)
+        //{
+        //    barcode = value;
+        //}
+
+        //public string GetBarCode()
+        //{
+        //    return barcode;
+        //}
+
         private string barcode;
         public string BarCode 
         { 
@@ -30,12 +43,13 @@ namespace ProcessFile.Models
 
                 barcode = value;
             }
-        }        
+        }
+        
         public string Color { get; set; }
 
         public override string GetDescription()
         {
-            return $"{Name} {Price:C2} {BarCode} {Color}";
+            return $"{base.GetDescription()} {BarCode} {Color}";
         }
     }
 }

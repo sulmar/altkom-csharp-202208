@@ -93,9 +93,10 @@ namespace ProcessFile.Models
             removedDate = DateTime.Now;
         }
 
+        // virtual - włącza mechanizm polimorfizmu (wielopostaciowość)
         public virtual string GetDescription()
         {
-            return $"{name} {price:C2}";
+            return $"{name} {price:C2} {isRemoved}";
         }
     }
 }

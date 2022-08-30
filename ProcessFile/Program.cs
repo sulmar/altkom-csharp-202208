@@ -51,7 +51,23 @@ namespace ProcessFile
         {
             foreach (Item item in items)
             {
+                //if (item is Product)
+                //{
+                //    Product product = item as Product;
+                //}
+
+                //if (item is Product product)
+                //{
+                //    ((Product)item).GetDescription();
+                //}
+                //else if (item is Service service)
+                //{
+                //    ((Service)item).GetDescription();
+                //}
+
                 Console.WriteLine(item.GetDescription());
+
+
             }
         }
     }
