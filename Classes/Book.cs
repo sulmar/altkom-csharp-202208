@@ -6,14 +6,28 @@ using System.Threading.Tasks;
 
 namespace Classes
 {
-    internal class Book
-    {
-        public string authorName;
+
+    public class Publication
+    {     
         public DateOnly releaseDate;
         public string Title { get; set; }
         public string Description { get; set; }
-        public CoverType CoverType { get; set; } 
         public string Publisher { get; set; }
+    }
+
+    public class Newspaper : Publication
+    {
+        public string ISSN { get; set; }
+    }
+
+    internal class Book : Publication
+    {
+        public string ISBN { get; set; }
+
+        public string authorName;
+
+        public CoverType CoverType { get; set; } 
+       
 
         public void ShowDetails()
         {
@@ -43,38 +57,6 @@ namespace Classes
     {        
         Hard = 0,
         Soft = 1,
-    }
-
-    internal class Telefon
-    {
-        public string marka;
-        public string model;
-        public int rokZakupu;
-
-        public void Display()
-        {
-            Console.WriteLine($"{Wiek()} {marka} {model}");
-        }
-
-        public int Wiek()
-        {
-            return DateTime.Today.Year - rokZakupu;
-        }
-    }
-
-   
-
-    internal class Clock
-    {
-        public string name;
-        public string color;
-        public int diemeter; // średnica
-        public int height;
-
-        public void Print()
-        {
-
-        }
     }
 
 
