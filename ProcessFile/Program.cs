@@ -14,14 +14,22 @@ namespace ProcessFile
             
             decimal ratio = 0.1m;
 
-            IItemService itemService = new CsvItemService(filename, ',');
+            CsvItemService itemService = new CsvItemService(filename, ',');
             // IItemService itemService = new DbItemService("server=local;database=items;...");
             // IItemService itemService = new XmlItemService();
 
             itemService.Get();
 
-            Item[] items = itemService.Get();           
+            Item[] items = itemService.Get();
 
+            Item item = items[0];
+            item.Price = 100;
+            Console.WriteLine(item.BarCode);
+
+            Console.WriteLine(item.Price);
+
+            item.Remove();
+            
             Display(items);
 
             IncrementPrices(items, ratio);            
@@ -30,16 +38,12 @@ namespace ProcessFile
 
         }
 
-       
-        
-
-
         static void IncrementPrices(Item[] items, decimal ratio)
         {
             foreach (Item item in items)
             {
                 // item.price = item.price + item.price * 0.1m;
-                item.price += item.price * ratio;
+                item.Price += item.Price * ratio;                
             }
         }
 

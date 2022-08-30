@@ -6,15 +6,86 @@ using System.Threading.Tasks;
 
 namespace ProcessFile.Models
 {
-    internal class Item
+    public class Item
     {
-        public string barCode;
-        public string name;
-        public string color;
-        public decimal price;
+        public int Id { get; set; }
+        public string BarCode { get; private set; } 
+        public string Title { get; set; }
+                
+        private string name;
+
+        public string Name
+        {
+            set => name = value;    // wyrażenie lambda
+            get => name;
+        }
+
+
+        private string color;
+        public string Color
+        {
+            set
+            {
+                color = value;
+            }
+            get
+            {
+                return color;
+            }   
+        }
+
+
+        private decimal price;
+
+        // Właściwość (Property)
+        public decimal Price
+        {
+            // setter
+            set
+            {
+                // Walidacja
+                if (value < 0)
+                    throw new ArgumentOutOfRangeException();
+
+                price = value;
+            }
+
+            // getter
+            get
+            {
+                return price;
+            }
+        }
+
+       
+
+        /*
+
+        // Setter
+        public void SetPrice(decimal value)
+        {
+            // Walidacja
+            if (value < 0)
+                throw new ArgumentOutOfRangeException();
+
+            price = value;
+        }
+
+        // Getter
+        public decimal GetPrice()
+        {
+            return price;
+        }
+
+        */
+
+
+
+        private bool isRemoved;
+        private DateTime? removedDate;
 
         public DateTime createdDate;
-
+        
         const int BarCodeSize = 7;
 
         // Konstruktor - służy do utworzenia obiektu
@@ -30,7 +101,7 @@ namespace ProcessFile.Models
                 throw new ArgumentOutOfRangeException("Cena na nie może być poniżej 0");
             }
 
-            this.barCode = barCode;
+            this.BarCode = barCode;
             this.name = name;
             this.price = price;
 
@@ -39,7 +110,13 @@ namespace ProcessFile.Models
 
         public override string ToString()
         {
-            return $"{barCode} {name} {color} {price:C2}";
+            return $"{BarCode} {name} {Color} {price:C2}";
+        }
+
+        public void Remove()
+        {
+            isRemoved = true;
+            removedDate = DateTime.Now;
         }
     }
 }

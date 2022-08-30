@@ -2,7 +2,7 @@
 
 namespace ProcessFile.IServices
 {
-    interface IItemService
+    public interface IItemService
     {
         Item[] Get();
     }

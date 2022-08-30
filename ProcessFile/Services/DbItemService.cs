@@ -3,7 +3,7 @@ using ProcessFile.Models;
 
 namespace ProcessFile.Services
 {
-    internal class DbItemService : IItemService
+    public class DbItemService : IItemService
     {
         // snippet: ctor + 2 x Tab
 

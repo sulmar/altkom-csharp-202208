@@ -10,14 +10,14 @@ namespace Classes
     {
         public string authorName;
         public DateOnly releaseDate;
-        public string title { get; set; }
-        public string description { get; set; }
-        public CoverType coverType { get; set; } 
-        public string publisher { get; set; }
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public CoverType CoverType { get; set; } 
+        public string Publisher { get; set; }
 
         public void ShowDetails()
         {
-            Console.WriteLine($"{title} {GetCoverTypeAsString()}");
+            Console.WriteLine($"{Title} {GetCoverTypeAsString()}");
         }
 
         //public Book(CoverType coverType)
@@ -27,7 +27,7 @@ namespace Classes
 
         public string GetCoverTypeAsString()
         {
-            switch (this.coverType)
+            switch (this.CoverType)
             {
                 case CoverType.Hard: return "Twarda obwoluta"; break;
                 case CoverType.Soft: return "Miękka obwoluta"; break;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using ProcessFile.IServices;
 using ProcessFile.Models;
@@ -10,7 +11,7 @@ using ProcessFile.Models;
 namespace ProcessFile.Services
 {
 
-    internal class CsvItemService : IItemService    // CsvItemService implementuje IItemService
+    public class CsvItemService : IItemService    // CsvItemService implementuje IItemService
     {
         string filename;
         char separator;
@@ -21,12 +22,9 @@ namespace ProcessFile.Services
             this.separator = separator;
         }
 
-        
-
+        // public - ta metoda dostępna będzie również poza klasą CsvItemService
         public Item[] Get()
         {           
-            CultureInfo culture = new CultureInfo("en");
-
             // Tablica
             // string content = File.ReadAllText(filename);
 
@@ -40,23 +38,29 @@ namespace ProcessFile.Services
             // Iteracja po elementach tablicy
             foreach (string line in lines.Skip(1))
             {
-                // Rozdzielenie tekstu na tablicę
-                string[] columns = line.Split(separator);
-
-                string barCode = columns[0];
-                string name = columns[1];
-                string color = columns[2];
-                decimal price = decimal.Parse(columns[3], culture);
-
-                Item item = new Item(barCode, name, price);
-                item.price = price;
-
-              
-
-                items[i++] = item;
+                items[i++] = Map(line);
             }
 
             return items;
+        }
+
+        // private - ta metoda dostępna będzie tylko z klasy CsvItemService
+        private Item Map(string line)
+        {
+            CultureInfo culture = new CultureInfo("en");
+
+            // Rozdzielenie tekstu na tablicę
+            string[] columns = line.Split(separator);
+
+            string barCode = columns[0];
+            string name = columns[1];
+            string color = columns[2];
+            decimal price = decimal.Parse(columns[3], culture);
+
+            Item item = new Item(barCode, name, price);
+            item.Price = price;
+
+            return item;
         }
     }
 }

@@ -7,7 +7,7 @@
             Console.WriteLine("Hello, World!");
 
             Book book = new Book();
-            book.coverType = CoverType.Hard;
+            book.CoverType = CoverType.Hard;
            
             
 
