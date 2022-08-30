@@ -1,6 +1,7 @@
 ﻿using ProcessFile.IServices;
 using Altkom.Models;
 using ProcessFile.Services;
+using Validators.Polish;
 
 namespace ProcessFile
 {
@@ -9,6 +10,10 @@ namespace ProcessFile
         static void Main(string[] args)
         {
             Console.WriteLine("Hello, Process File!");
+
+            NipValidator validator = new NipValidator();
+            Console.WriteLine(validator.IsValid("9531204591"));
+            
 
             const string filename = "Items.csv";
             
