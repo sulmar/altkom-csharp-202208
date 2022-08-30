@@ -30,18 +30,19 @@ namespace ProcessFile.Services
 
             string sql = "select * from dbo.Items WHERE Color = @color";
 
-            SqlCommand command = new SqlCommand(sql, sqlConnection);
+            using SqlCommand command = new SqlCommand(sql, sqlConnection);
+
             command.Parameters.AddWithValue("color", color);
 
             sqlConnection.Open();
 
             SqlDataReader reader = command.ExecuteReader();
 
-            List<Item> items = new List<Item>();    
+            List<Item> items = new List<Item>();
 
-            while(reader.Read())
+            while (reader.Read())
             {
-                string name = (string) reader["Name"];
+                string name = (string)reader["Name"];
                 decimal price = (decimal)reader["Price"];
 
                 Item item = new Item(name, price);
@@ -51,7 +52,8 @@ namespace ProcessFile.Services
 
             return items;
 
-            
+
+
         }
     }
 }

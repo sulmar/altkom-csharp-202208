@@ -13,33 +13,35 @@ namespace ProcessFile
 
             NipValidator validator = new NipValidator();
             Console.WriteLine(validator.IsValid("9531204591"));
-            
+
 
             const string filename = "Items.csv";
-            
+
             decimal ratio = 0.1m;
 
-            CsvItemService itemService = new CsvItemService(filename, ',');
-            // IItemService itemService = new DbItemService("server=local;database=items;...");
-            // IItemService itemService = new XmlItemService();
+            using (IItemService itemService = new CsvItemService(filename, ','))
+            {
+                // IItemService itemService = new DbItemService("server=local;database=items;...");
+                // IItemService itemService = new XmlItemService();
 
-            itemService.Get();
+                itemService.Get();
 
-            Item[] items = itemService.Get();
+                Item[] items = itemService.Get();
 
-            Item item = items[0];
-            item.Price = 100;
-            //Console.WriteLine(item.BarCode);
+                Item item = items[0];
+                item.Price = 100;
+                //Console.WriteLine(item.BarCode);
 
-            Console.WriteLine(item.Price);
+                Console.WriteLine(item.Price);
 
-            item.Remove();            
-            
-            Display(items);
+                item.Remove();
 
-            IncrementPrices(items, ratio);            
+                Display(items);
 
-            Display(items);
+                IncrementPrices(items, ratio);
+
+                Display(items);
+            }
 
         }
 
@@ -50,7 +52,7 @@ namespace ProcessFile
                 // item.price = item.price + item.price * 0.1m;
                 item.Price += item.Price * ratio;
             }
-        }        
+        }
 
         static void Display(Item[] items)
         {

@@ -11,7 +11,7 @@ using Altkom.Models;
 namespace ProcessFile.Services
 {
 
-    public class CsvItemService : IItemService    // CsvItemService implementuje IItemService
+    public class CsvItemService : IItemService, IDisposable    // CsvItemService implementuje IItemService
     {
         string filename;
         char separator;
@@ -20,6 +20,11 @@ namespace ProcessFile.Services
         {
             this.filename = filename;
             this.separator = separator;
+        }
+
+        public void Dispose()
+        {
+            
         }
 
         // public - ta metoda dostępna będzie również poza klasą CsvItemService
