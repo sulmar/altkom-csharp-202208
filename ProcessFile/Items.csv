@@ -1,6 +1,9 @@
-﻿BarCode,Name,Color,Price
-1111111,Product 1,Red,10.99
-2222222,Product 2,Green,5.99
-3333333,Product 3,Red,20.00
-4444444,Product 4,Blue,199.00
-5555555,Product 5,Green,10.99
+﻿ItemType,BarCode,Name,Color,Duration,Price
+P,1111111,Product 1,Red,,10.99
+P,2222222,Product 2,Green,,5.99
+P,3333333,Product 3,Red,,20.00
+P,4444444,Product 4,Blue,,199.00
+P,5555555,Product 5,Green,,10.99
+S,,Service 1,,30,10.99
+S,,Service 2,,120,190.99
+S,,Service 3,,50,50.00
