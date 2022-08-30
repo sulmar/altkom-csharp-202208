@@ -24,7 +24,7 @@ namespace ProcessFile.Services
 
         // public - ta metoda dostępna będzie również poza klasą CsvItemService
         public Item[] Get()
-        {           
+        {
             // Tablica
             // string content = File.ReadAllText(filename);
 
@@ -52,13 +52,32 @@ namespace ProcessFile.Services
             // Rozdzielenie tekstu na tablicę
             string[] columns = line.Split(separator);
 
-            string barCode = columns[0];
-            string name = columns[1];
-            string color = columns[2];
-            decimal price = decimal.Parse(columns[3], culture);
+            string itemType = columns[0];
 
-            Item item = new Item(barCode, name, price);
-            item.Price = price;
+            string name = columns[2];
+            decimal price = decimal.Parse(columns[5], culture);
+
+            Item item = null;
+
+            if (itemType == "P")
+            {
+                string barCode = columns[1];
+                string color = columns[3];
+
+                item = new Product(barCode, color, name, price);
+            }
+            else
+            if (itemType == "S")
+            {
+                TimeSpan duration = TimeSpan.FromMinutes(int.Parse(columns[4]));
+
+                item = new Service(duration, name, price);
+            }
+            else
+            if (itemType == "T")
+            {
+                item = new Commodity(name, price);
+            }
 
             return item;
         }

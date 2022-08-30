@@ -24,11 +24,11 @@ namespace ProcessFile
 
             Item item = items[0];
             item.Price = 100;
-            Console.WriteLine(item.BarCode);
+            //Console.WriteLine(item.BarCode);
 
             Console.WriteLine(item.Price);
 
-            item.Remove();
+            item.Remove();            
             
             Display(items);
 
@@ -43,15 +43,15 @@ namespace ProcessFile
             foreach (Item item in items)
             {
                 // item.price = item.price + item.price * 0.1m;
-                item.Price += item.Price * ratio;                
+                item.Price += item.Price * ratio;
             }
-        }
+        }        
 
         static void Display(Item[] items)
         {
             foreach (Item item in items)
             {
-                Console.WriteLine(item);
+                Console.WriteLine(item.GetDescription());
             }
         }
     }

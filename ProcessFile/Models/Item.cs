@@ -6,24 +6,9 @@ using System.Threading.Tasks;
 
 namespace ProcessFile.Models
 {
-    public class Service
-    {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public TimeSpan Duration { get; set; } 
-    }
-
-    public class Product
-    {
-        public string BarCode { get; set; }
-        public string Name { get; set; }
-        public string Color { get; set; }
-        public decimal Price { get; set; }
-    }
 
     public class Item
-    {
-        public string BarCode { get; private set; } 
+    {        
                         
         private string name;
 
@@ -32,21 +17,7 @@ namespace ProcessFile.Models
             set => name = value;    // wyrażenie lambda
             get => name;
         }
-
-
-        private string color;
-        public string Color
-        {
-            set
-            {
-                color = value;
-            }
-            get
-            {
-                return color;
-            }   
-        }
-
+        
 
         private decimal price;
 
@@ -58,7 +29,7 @@ namespace ProcessFile.Models
             {
                 // Walidacja
                 if (value < 0)
-                    throw new ArgumentOutOfRangeException();
+                    throw new ArgumentOutOfRangeException("Cena na nie może być poniżej 0");
 
                 price = value;
             }
@@ -98,38 +69,33 @@ namespace ProcessFile.Models
         private DateTime? removedDate;
 
         public DateTime createdDate;
-        
-        const int BarCodeSize = 7;
+
+        public DateTime ModifiedDate { get; set; }
+      
 
         // Konstruktor - służy do utworzenia obiektu
-        public Item(string barCode, string name, decimal price)
-        {
-            if (barCode.Length != BarCodeSize)
-            {
-                throw new FormatException($"Kod kreskowy powinien mieć {BarCodeSize} znaków.");
-            }
-
-            if (price <= 0)
-            {
-                throw new ArgumentOutOfRangeException("Cena na nie może być poniżej 0");
-            }
-
-            this.BarCode = barCode;
+        public Item(string name, decimal price)
+        {            
             this.name = name;
-            this.price = price;
+            this.Price = price;
 
             createdDate = DateTime.UtcNow;
         }
 
         public override string ToString()
         {
-            return $"{BarCode} {name} {Color} {price:C2}";
+            return $"{name} {price:C2}";
         }
 
         public void Remove()
         {
             isRemoved = true;
             removedDate = DateTime.Now;
+        }
+
+        public virtual string GetDescription()
+        {
+            return $"{name} {price:C2}";
         }
     }
 }

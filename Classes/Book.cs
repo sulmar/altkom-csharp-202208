@@ -62,21 +62,7 @@ namespace Classes
         }
     }
 
-    internal class Car
-    {
-        public string Marka;
-        public string Model;
-        public int Rocznik { get; set; }
-        public int? Przebieg { get; set; }
-
-        public void Display()
-        {
-            if (Przebieg.HasValue)
-            {
-                
-            }
-        }
-    }
+   
 
     internal class Clock
     {
